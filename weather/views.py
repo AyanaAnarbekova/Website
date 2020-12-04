@@ -55,6 +55,7 @@ def index(request):
 
     return render(request,'weather/index.html',context)
 
-def delete_city(request ,city_name):
-    City.objects.get(name=city_name).delete()
-    return redirect('home')
+def delete(request, city_name):
+        city = City.objects.filter(name = city_name)
+        city.delete()
+        return redirect('home')
