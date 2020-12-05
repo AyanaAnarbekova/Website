@@ -2,10 +2,12 @@ import requests
 from django.shortcuts import render, redirect
 from .models import City
 from .forms import CityForm
+import datetime
 
 def index(request):
     appid = '55fd3853bd0b725eeba51090dcea85d9'
     url = 'https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid='+appid
+    v = 'http://api.openweathermap.org/data/2.5/forecast?q={}&&units=metric&appid='+appid
     
     err_msg=''
     message=''
@@ -36,6 +38,29 @@ def index(request):
     cities=City.objects.all()
     for city in cities:
         res = requests.get(url.format(city.name)).json()
+
+        a = v.format(city)
+
+        full = requests.get(a).json()
+
+        day = datetime.datetime.today()
+        today_date = int(day.strftime('%d'))
+
+        forecast_data_list = {} 
+
+        for c in range(0, full['cnt']):
+            date_var1 = full['list'][c]['dt_txt']
+            date_time_obj1 = datetime.datetime.strptime(date_var1, '%Y-%m-%d %H:%M:%S')
+            if int(date_time_obj1.strftime('%d')) == today_date or int(date_time_obj1.strftime('%d')) == today_date+1:
+                if int(date_time_obj1.strftime('%d')) == today_date+1:
+                    today_date += 1
+                forecast_data_list[today_date] = {}
+                forecast_data_list[today_date]['date'] = date_time_obj1.strftime('%d %b, %Y')
+                forecast_data_list[today_date]['temperature'] = full['list'][c]['main']['temp']
+                
+                today_date += 1
+            else:
+                pass
         city_info = {
             'city': city.name,
             'temp': res['main']['temp'],
@@ -43,6 +68,7 @@ def index(request):
             'description':res['weather'][0]['description'],
             'humidity': res['main']['humidity'],
             'pressure': res['main']['pressure'],
+            'forecast': forecast_data_list,
         }
         all_cities.append(city_info)
     context={
