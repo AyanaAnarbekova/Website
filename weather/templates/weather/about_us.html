@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+        <h5 class="my-0 mr-md-auto font-weight-normal">Hundred</h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2 text-dark" href="{% url 'home' %}">Main</a>
+            <a class="p-2 text-dark" href="{% url 'help' %}" target="_blank">Help</a>
+        </nav>
+    </div>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md-12 is-offset-10 text-center'>
+                <h2>About Us</h2>
+                <div class='inf'>
+                    This is a our web project, which is a website created to find a weather in every city of the world.
+                    For making this website our team used django and python languages.
+                    All the weater data we are taking from the openweathermap.org website, that provides all necessary infomation.
+                    We also used bootstrap for making it better-looking.<br>
+                    <br>
+                    <br>
+                </div>
+            </div>
+            Our team is named "Hundred" and consists of:<br>
+                <ul>
+                    <li>Anuarbekova Amina</li>
+                    <li>Arapbai Guldana</li>
+                    <li>Anarbekova Ayana</li>
+                </ul>
+        </div>
+    </div>
+</body>
+</html>

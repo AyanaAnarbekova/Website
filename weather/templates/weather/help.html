@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+        <h5 class="my-0 mr-md-auto font-weight-normal">Hundred</h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2 text-dark" href="{% url 'about_us' %}" target="_blank">About Us</a>
+            <a class="p-2 text-dark" href="{% url 'home' %}">Main</a>
+        </nav>
+    </div>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md-12 is-offset-10 text-center'>
+                <h2>Help</h2>
+            </div>
+            <div class='inf'>
+                <b>How to use:</b>
+                    <ol>
+                        <li>Enter the name of city where you want to check the weater</li>
+                        <li>Click the submit button to send a request</li>
+                        <li>In the table in the right side check the weather parameters:<ul>
+                            <li>Temperature</li>
+                            <li>Description</li>
+                            <li>Humidity</li>
+                            <li>Preasure</li>
+                        </ul>
+                        </li>
+                        <li>You can also delete any of the cities any time you want</li>
+                    </ol>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
