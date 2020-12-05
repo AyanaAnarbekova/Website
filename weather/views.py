@@ -3,10 +3,10 @@ from django.shortcuts import render, redirect
 from .models import City
 from .forms import CityForm
 
-
 def index(request):
-    appid='8f98c84519874c9b0e4b5e23ca050d20'
-    url='https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid='+appid
+    appid = '55fd3853bd0b725eeba51090dcea85d9'
+    url = 'https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid='+appid
+    
     err_msg=''
     message=''
     message_class=''
@@ -52,8 +52,7 @@ def index(request):
         'message_class': message_class
     }
 
-
-    return render(request,'weather/index.html',context)
+    return render(request, 'weather/index_boot.html', context)
 
 def delete(request, city_name):
         city = City.objects.filter(name = city_name)
