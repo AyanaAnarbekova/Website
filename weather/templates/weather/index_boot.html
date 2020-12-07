@@ -69,8 +69,12 @@
                                             <b>Pressure: </b>{{info.pressure}} hPa<br>
                                             <b>Forecast: </b><br>
                                             {% for x,y in info.forecast.items%}
+                                            
                                             <li class="bg">{{y.date}}:
-                                            {{y.temperature}}°C </li>
+                                            {{y.temperature}}°C 
+                                            <div class="media-right">
+                                                <img src="http://openweathermap.org/img/wn/{{y.icon}}.png" alt="photo" class="img-thumbnail">
+                                            </div></li>
                                             {% endfor%}
                                             <br>
                                     

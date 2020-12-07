@@ -57,6 +57,7 @@ def index(request):
                 forecast_data_list[today_date] = {}
                 forecast_data_list[today_date]['date'] = date_time_obj1.strftime('%d %b, %Y')
                 forecast_data_list[today_date]['temperature'] = full['list'][c]['main']['temp']
+                forecast_data_list[today_date]['icon'] = full['list'][c]['weather'][0]['icon']
                 
                 today_date += 1
             else:
